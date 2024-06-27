@@ -1,0 +1,80 @@
+# debian-12.5.0-amd64-DVD-1.iso
+
+# Boot from the ISO and follow the dialogs.
+    Set system name
+    Setup root user
+    Setup initial user
+    Select default partition scheme
+    Install the OpenSSH server package
+    Install GRUB
+
+# Use terminal to get IPA for remote login
+    ip a
+
+# Login as initial user and get root
+    sudo su
+    cd
+
+# Setup root paths
+    mkdir ~/scripts
+    mkdir ~/setup
+    mkdir ~/source
+
+# Setup update script (update.system.sh file)
+    nano -w /usr/local/bin/update.system.sh
+    chmod 755 /usr/local/bin/update.system.sh
+
+# Add a source of Entropy for Virtual Machines.
+    apt install -y haveged
+
+# Add Network Tools
+    apt install -y net-tools
+
+# Create a Password Generator (genpw file)
+    nano -w /usr/local/bin/genpw
+    chmod 755 /usr/local/bin/genpw
+
+# Setup file search
+    apt install -y apt-file && apt-file update
+
+# Update Timezone
+    dpkg-reconfigure tzdata
+
+# Setup initial crontab for root (crontab.e file)
+    crontab -e
+
+# Update cron schedules (crontab.sch file)
+    cp /etc/crontab /etc/crontab.distro
+    nano -w /etc/crontab
+
+# Check Time Sync
+    systemctl status systemd-timesyncd
+
+* Update bash settings for users:
+    printf "source .bashrc\n" >> ~/.profile
+    printf "alias dir=\047ls -aFhl --color\047\n" > ~/.bashrc
+    printf "alias edit=\042/bin/nano -w\042\n" >> ~/.bashrc
+    printf "\n" >> ~/.bashrc
+    printf "export EDITOR=\042/bin/nano\042\n" >> ~/.bashrc
+    printf "PS1=\042\134[\134033[1;32m\134][\134\044(date \047+\045Y-\045m-\045d_\045H:\045M:\045S\047)]\134[\134033[1;35m\134][\134u\100\134h:\134w]\044\134[\134033[0m\134] \042\n" >> ~/.bashrc
+    printf "\n" >> ~/.bashrc
+
+* Generate SSH keys for users:
+    ssh-keygen -t rsa
+    cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+#
+# Options
+#
+
+# add no-password for sudo user
+  edit /etc/sudoers.d/username
+  
+  username     ALL=(ALL) NOPASSWD:ALL
+
+# Reboot to apply/test
+    reboot
+
+# Shutdown to detach the install ISO of a VM and to take a snapshot
+    sudo su
+    shutdown -h now
