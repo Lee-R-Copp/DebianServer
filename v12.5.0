@@ -78,6 +78,13 @@
 # Reboot to apply/test
     reboot
 
+# Install xe-guest-utilities (If running on XenHypervisor, XCP, etc..)
+    insert 'guest-tools.iso'
+    mkdir /mnt/cdrom
+    mount /dev/cdrom /mnt/cdrom
+    /mnt/cdrom/Linux/install.sh
+    reboot
+
 # Shutdown to detach the install ISO of a VM and to take a snapshot
     sudo su
     shutdown -h now
