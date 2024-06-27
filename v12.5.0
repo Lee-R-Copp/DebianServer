@@ -67,6 +67,9 @@
 # Options
 #
 
+# comment out cdrom from sources.list
+ edit /etc/apt/sources.list
+
 # add no-password for sudo user
   edit /etc/sudoers.d/username
   
