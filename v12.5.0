@@ -60,13 +60,16 @@
 # Options
 #
 
-# comment out cdrom from sources.list
- edit /etc/apt/sources.list
+# fix network changes (VM template copy, etc..)
+    edit /etc/network/interfaces
+    /etc/init.d/networking restart
 
+# comment out cdrom from sources.list
+    edit /etc/apt/sources.list
+    
 # add no-password for sudo user
-  edit /etc/sudoers.d/username
-  
-  username     ALL=(ALL) NOPASSWD:ALL
+    edit /etc/sudoers.d/username
+    username     ALL=(ALL) NOPASSWD:ALL
 
 # Reboot to apply/test
     reboot
