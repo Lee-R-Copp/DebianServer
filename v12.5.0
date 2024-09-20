@@ -12,7 +12,7 @@
     ip a
 
 # Login as initial user and get root
-    sudo su
+    su
     cd
 
 # Setup root paths
