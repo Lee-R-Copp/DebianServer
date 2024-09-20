@@ -23,6 +23,8 @@
 # Setup update script (update.system.sh file)
     nano -w /usr/local/bin/update.system.sh
     chmod 755 /usr/local/bin/update.system.sh
+    update.system.sh
+    systemctl reboot
 
 # Add a source of Entropy for Virtual Machines.
     apt install -y haveged
@@ -30,15 +32,17 @@
 # Add Network Tools
     apt install -y net-tools
 
-# Create a Password Generator (genpw file)
-    nano -w /usr/local/bin/genpw
-    chmod 755 /usr/local/bin/genpw
-
 # Setup file search
     apt install -y apt-file && apt-file update
 
 # Update Timezone
-    dpkg-reconfigure tzdata
+    timedatectl list-timezones
+    timedatectl set-timezone "America/Detroit"
+
+# Create a Password Generator (genpw file)
+    nano -w /usr/local/bin/genpw
+    chmod 755 /usr/local/bin/genpw
+    genpw
 
 # Setup initial crontab for root (crontab.e file)
     crontab -e
@@ -68,7 +72,7 @@
     edit /etc/apt/sources.list
     
 # add no-password for sudo user
-    edit /etc/sudoers.d/username
+    nano -w /etc/sudoers.d/username
     username     ALL=(ALL) NOPASSWD:ALL
 
 # Reboot to apply/test
@@ -89,6 +93,6 @@
     /mnt/cdrom/Linux/install.sh
     reboot
 
-# Shutdown to detach the install ISO of a VM and to take a snapshot
+# Shutdown to detach any ISOs on the VM and to take a snapshot
     sudo su
     shutdown -h now
