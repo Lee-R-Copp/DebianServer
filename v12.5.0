@@ -75,6 +75,14 @@
     reboot
 
 # Install xe-guest-utilities (If running on XenHypervisor, XCP, etc..)
+    # Use APT
+    apt install xe-guest-utilities
+    systemctl enable xe-linux-distribution
+    systemctl start xe-linux-distribution
+    systemctl status xe-linux-distribution
+    reboot
+
+    # Use ISO
     insert 'guest-tools.iso'
     mkdir /mnt/cdrom
     mount /dev/cdrom /mnt/cdrom
