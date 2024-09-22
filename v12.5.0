@@ -32,9 +32,8 @@
 
 # Setup update script (update.system.sh file)
     nano -w /usr/local/bin/update.system.sh
-    chmod 755 /usr/local/bin/update.system.sh
+    chmod +x /usr/local/bin/update.system.sh
     update.system.sh
-    systemctl reboot
 
 # Add a source of Entropy for Virtual Machines.
     apt install -y haveged
@@ -51,7 +50,7 @@
 
 # Create a Password Generator (genpw file)
     nano -w /usr/local/bin/genpw
-    chmod 755 /usr/local/bin/genpw
+    chmod +x /usr/local/bin/genpw
     genpw
 
 # Setup initial crontab for root (crontab.e file)
@@ -79,9 +78,6 @@
     edit /etc/network/interfaces
     /etc/init.d/networking restart
 
-# comment out cdrom from sources.list
-    edit /etc/apt/sources.list
-    
 # add no-password for sudo user
     nano -w /etc/sudoers.d/username
     username     ALL=(ALL) NOPASSWD:ALL
