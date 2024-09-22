@@ -22,6 +22,9 @@
     su
     cd
 
+# Disable CD in apt sources.list
+    nano -w /etc/apt/sources.list
+
 # Setup root paths
     mkdir ~/scripts
     mkdir ~/setup
