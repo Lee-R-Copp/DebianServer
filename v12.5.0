@@ -74,6 +74,10 @@
 # Options
 #
 
+# Add sudo support
+    su
+    apt install sudo
+
 # fix network changes (VM template copy, etc..)
     edit /etc/network/interfaces
     /etc/init.d/networking restart
