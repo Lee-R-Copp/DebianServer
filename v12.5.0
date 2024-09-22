@@ -1,12 +1,19 @@
 # debian-12.5.0-amd64-DVD-1.iso
 
 # Boot from the ISO and follow the dialogs.
-    Set system name
-    Setup root user
-    Setup initial user
-    Select default partition scheme
-    Install the OpenSSH server package
-    Install GRUB
+    Set language
+    Set keyboard
+    Set host name
+    Set domain name
+    Setup root user/password
+    Setup initial user/password
+    Set time zone
+    Select partition scheme
+    Skip scanning media for packages
+    Setup mirror for package manager
+    Configure popularity contest
+    Select Software (disable desktop, enable SSH server, enable standard system utilities)
+    Install GRUB boot loader
 
 # Use terminal to get IPA for remote login
     ip a
