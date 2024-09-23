@@ -1,4 +1,4 @@
-# place this file in /etc/network/interfaces.d/enX0
+# edit /etc/network/interfaces.d/enX0
 #
 # The primary network interface
 
