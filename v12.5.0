@@ -82,8 +82,9 @@
     nano -w /etc/sudoers.d/username
     username     ALL=(ALL) NOPASSWD:ALL
 
-# fix network changes (VM template copy, etc..)
-    edit /etc/network/interfaces
+# move network setup into source directory
+    edit /etc/network/interfaces (copy local and ethernet into their own config in /etc/network/interfaces.d/
+
     /etc/init.d/networking restart
     systemctl reboot
 
