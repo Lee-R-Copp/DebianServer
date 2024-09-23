@@ -1,4 +1,4 @@
-# place this file in /etc/network/interfaces.d/lo
+# edit /etc/network/interfaces.d/lo
 #
 # The loopback network interface
 auto lo
