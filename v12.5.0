@@ -83,7 +83,7 @@
     username     ALL=(ALL) NOPASSWD:ALL
 
 # move network setup into source directory
-    edit /etc/network/interfaces (copy local and ethernet into their own config in /etc/network/interfaces.d/
+    edit /etc/network/interfaces (move local and ethernet into their own config in /etc/network/interfaces.d/, lo.inet, enX0.inet)
     /etc/init.d/networking restart
     systemctl reboot
 
