@@ -87,6 +87,9 @@
     /etc/init.d/networking restart
     systemctl reboot
 
+# Install basic utilities
+    apt install -y curl
+
 # Install xe-guest-utilities (If running on XenHypervisor, XCP, etc..)
     # Use APT
     apt install xe-guest-utilities
