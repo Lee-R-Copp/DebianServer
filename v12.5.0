@@ -78,15 +78,13 @@
     su
     apt install sudo
 
-# fix network changes (VM template copy, etc..)
-    edit /etc/network/interfaces
-    /etc/init.d/networking restart
-
 # add no-password for sudo user
     nano -w /etc/sudoers.d/username
     username     ALL=(ALL) NOPASSWD:ALL
 
-# Reboot to apply/test
+# fix network changes (VM template copy, etc..)
+    edit /etc/network/interfaces
+    /etc/init.d/networking restart
     systemctl reboot
 
 # Install xe-guest-utilities (If running on XenHypervisor, XCP, etc..)
