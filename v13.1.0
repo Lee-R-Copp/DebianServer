@@ -82,8 +82,13 @@
     nano -w /etc/sudoers.d/username
     username     ALL=(ALL) NOPASSWD:ALL
 
-# move network setup into source directory
-    edit /etc/network/interfaces (move local and ethernet into their own config in /etc/network/interfaces.d/, lo.inet, enX0.inet)
+# Move network setup into source directory (local and ethernet in their own config)
+    cp /etc/network/interfaces /etc/network/interfaces.d/lo.inet
+    cp /etc/network/interfaces /etc/network/interfaces.d/enX0.inet
+    nano -w /etc/network/interfaces 
+    nano -w /etc/network/interfaces.d/lo.inet
+    nano -w /etc/network/interfaces.d/enX0.inet
+
     /etc/init.d/networking restart
     systemctl reboot
 
@@ -91,15 +96,7 @@
     apt install -y curl
 
 # Install xe-guest-utilities (If running on XenHypervisor, XCP, etc..)
-    # Use APT
-    apt install xe-guest-utilities
-    systemctl enable xe-linux-distribution
-    systemctl start xe-linux-distribution
-    systemctl status xe-linux-distribution
-    systemctl reboot
-
-    # Use ISO
-    insert 'guest-tools.iso'
+# insert 'guest-tools.iso'
     mkdir /mnt/cdrom
     mount /dev/cdrom /mnt/cdrom
     /mnt/cdrom/Linux/install.sh
