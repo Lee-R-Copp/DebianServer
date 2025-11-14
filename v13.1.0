@@ -53,10 +53,10 @@
     chmod +x /usr/local/bin/genpw
     genpw
 
-# Setup initial crontab for root (crontab.e file)
+# OPTIONAL: Setup initial crontab for root (crontab.e file)
     crontab -e
 
-# Update cron schedules (crontab.sch file)
+# OPTIONAL: Update cron schedules (crontab.sch file)
     cp /etc/crontab /etc/crontab.distro
     nano -w /etc/crontab
 
