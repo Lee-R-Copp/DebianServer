@@ -108,3 +108,26 @@
 # Shutdown to detach any ISOs on the VM and to take a snapshot
     sudo su
     shutdown -h now
+
+#
+# Modify setup for hostname and static IP
+#
+
+# check current hostname
+    hostnamectl​
+
+# set the new hostname (replace NEWNAME):
+    sudo hostnamectl set-hostname NEWNAME​
+
+# edit /etc/hosts and update the line with 127.0.1.1 so it uses the new hostname:
+# e.g. change oldname → NEWNAME (and domain if needed).​
+
+# Reboot, or restart the hostname service:
+    sudo systemctl restart systemd-hostnamed​
+
+# Verify:
+hostnamectl
+
+# edit network config (enXX.inet file)
+    edit /etc/network/interfaces.d/enXX.inet
+    systemctl restart networking
