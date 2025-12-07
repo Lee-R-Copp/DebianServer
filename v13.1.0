@@ -95,8 +95,10 @@
 # Install basic utilities
     apt install -y curl
 
-# Install guest-utilities (If running on XenHypervisor, XCP, etc..)
+# Install guest-utilities (If running on Proxmox, XenHypervisor, XCP, etc..)
     apt install -y qemu-guest-agent
+    systemctl enable --now qemu-guest-agent
+    # enable QEMU support in Proxmox (VM -> Options -> QEMU Guest Agent)
 # insert 'guest-tools.iso'
     mkdir /mnt/cdrom
     mount /dev/cdrom /mnt/cdrom
