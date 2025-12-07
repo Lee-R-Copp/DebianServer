@@ -76,7 +76,7 @@
 
 # Add sudo support
     su
-    apt install sudo
+    apt install -y sudo
 
 # add no-password for sudo user
     nano -w /etc/sudoers.d/username
@@ -95,7 +95,8 @@
 # Install basic utilities
     apt install -y curl
 
-# Install xe-guest-utilities (If running on XenHypervisor, XCP, etc..)
+# Install guest-utilities (If running on XenHypervisor, XCP, etc..)
+    apt install -y qemu-guest-agent
 # insert 'guest-tools.iso'
     mkdir /mnt/cdrom
     mount /dev/cdrom /mnt/cdrom
