@@ -8,7 +8,7 @@ iface enX0 inet dhcp
 
 # Static IP
 #auto enX0
-#iface enX0 inet static
-#address x.x.x.x/24
-#gateway x.x.x.x
-#dns-nameservers x.x.x.x x.x.x.x
+#  iface enX0 inet static
+#  address x.x.x.x/24
+#  gateway x.x.x.x
+#  dns-nameservers x.x.x.x x.x.x.x
