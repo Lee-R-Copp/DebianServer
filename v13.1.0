@@ -128,6 +128,19 @@
 # Verify:
 hostnamectl
 
+#
+# Set STATIC IPA
+#
+
+# install and enable resolvconf so it takes the static values and writes /etc/resolv.conf:
+    apt install -y resolvconf
+    rm /etc/resolv.conf
+    ln -s /run/resolvconf/resolv.conf /etc/resolv.conf
+    systemctl enable --now resolvconf.service
+
 # edit network config (enXX.inet file)
     edit /etc/network/interfaces.d/enXX.inet
+    
+# check
     systemctl restart networking
+    cat /etc/resolv.conf
